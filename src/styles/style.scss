@@ -1,5 +1,15 @@
 @import '~bootstrap';
 
-.form-section {
+@mixin section-width {
   max-width: 500px;
+}
+
+body {
+  .form-section {
+    @include section-width;
+  }
+
+  .display-section {
+    @include section-width;
+  }
 }
