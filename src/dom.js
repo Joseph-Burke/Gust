@@ -70,7 +70,7 @@ const dom = {
                 },
                 {
                   element: "div",
-                  classList: ["col-9"],
+                  classList: ["col-5"],
                   children: [
                     {
                       element: "div",
@@ -89,6 +89,40 @@ const dom = {
                       ]
                     }
                   ]
+                },
+                {
+                  element: "div",
+                  classList: ["col-4"],
+                  children: [
+                    {
+                      element: "div",
+                      classList: ["card-body"],
+                      children: [
+                        {
+                          element: "h4",
+                          id: "temperature",
+                          textContent: `${Math.floor(data.main.temp)}°C`,
+                          classList: ["h3"],
+                          "data-attribute": "celcius"
+                        },
+                        {
+                          element: "a",
+                          id: "conversion-link",
+                          classList: ["conversion-link"],
+                          textContent: `Convert to Fahrenheit`,
+                          eventListeners: [
+                            [
+                              "click",
+                              event => {
+                                event.preventDefault();
+                                dom.convertTemperature();
+                              }
+                            ]
+                          ]
+                        }
+                      ]
+                    }
+                  ]
                 }
               ]
             }
@@ -103,25 +137,38 @@ const dom = {
     dom.applyCityInputEventListener();
   },
   setBodyBackground: gradient => {
-    let body = document.getElementById('body');
-    body.style['background-image'] = gradient;
+    let body = document.getElementById("body");
+    body.style["background-image"] = gradient;
   },
   changeBackground: searchTerm => {
     searchTerm = searchTerm.toLowerCase();
-    api.fetchColors(searchTerm)
+    api
+      .fetchColors(searchTerm)
       .then(data => data.json())
       .then(obj => {
-        let hexCodes = helpers.pickColors(obj.colors)
+        let hexCodes = helpers.pickColors(obj.colors);
         let radialGradient =
-          "radial-gradient(circle, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.8)), repeating-radial-gradient(circle, ";
-        
+          "radial-gradient(circle, rgba(225, 225, 225, 0.9), rgba(225, 225, 225, 0.8)), repeating-radial-gradient(circle, ";
+
         for (let i = 0; i < hexCodes.length - 1; i += 1) {
-          radialGradient += `${hexCodes[i]} ${100 + (50*i)}px,`;
+          radialGradient += `${hexCodes[i]} ${100 + 50 * i}px,`;
         }
         radialGradient += `${hexCodes[4]} 250px)`;
         dom.setBodyBackground(radialGradient);
-        }
-      )
+      });
+  },
+  convertTemperature: () => {
+    let tempElement = document.getElementById("temperature");
+    if (tempElement["data-attribute"] == "celcius") {
+      let celcius = tempElement.textContent;
+      let fahrenheit = helpers.convertToFahrenheit(celcius);
+      tempElement.textContent = fahrenheit;
+      tempElement["data-attribute"] = "fahrenheit";
+    } else if (tempElement["data-attribute"] == "fahrenheit") {
+      let fahrenheit = tempElement.textContent;
+      tempElement.textContent = helpers.convertToCelcius(fahrenheit);
+      tempElement["data-attribute"] = "celcius";
+    }
   }
 };
 
