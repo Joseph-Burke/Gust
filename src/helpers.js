@@ -8,39 +8,37 @@ const helpers = {
     Object.keys(contentObj).forEach(key => {
       if (
         ![
-          "element",
-          "children",
-          "classList",
-          "eventListeners",
-          "data-toggle",
-          "data-target"
+          'element',
+          'children',
+          'classList',
+          'eventListeners',
+          'data-toggle',
+          'data-target',
         ].includes(key)
       ) {
         output[key] = contentObj[key];
       } else {
         switch (key) {
-          case "children":
+          case 'children':
             contentObj.children.forEach(element => {
               output.appendChild(helpers.createContent(element));
             });
             break;
-          case "element":
+          case 'element':
             break;
-          case "classList":
-            contentObj.classList.forEach(element =>
-              output.classList.add(element)
-            );
+          case 'classList':
+            contentObj.classList.forEach(element => output.classList.add(element));
             break;
-          case "eventListeners":
+          case 'eventListeners':
             contentObj.eventListeners.forEach(eventListener => {
               output.addEventListener(eventListener[0], eventListener[1]);
             });
             break;
-          case "data-toggle":
-            output.setAttribute("data-toggle", contentObj["data-toggle"]);
+          case 'data-toggle':
+            output.setAttribute('data-toggle', contentObj['data-toggle']);
             break;
-          case "data-target":
-            output.setAttribute("data-target", contentObj["data-target"]);
+          case 'data-target':
+            output.setAttribute('data-target', contentObj['data-target']);
             break;
           default:
             break;
@@ -52,26 +50,23 @@ const helpers = {
   pickColors: colorsArray => {
     let chosenColours = [];
     for (let i = 0; i < 5; i += 1) {
-      let randomIndex = Math.floor(Math.random() * colorsArray.length);
+      const randomIndex = Math.floor(Math.random() * colorsArray.length);
       chosenColours.push(colorsArray[randomIndex].hex);
-      console.log(colorsArray[randomIndex].hex);
     }
     chosenColours = chosenColours.map(code => `#${code}`);
 
     return chosenColours;
   },
   convertToFahrenheit: tempInCelcius => {
-    let celcius = parseInt(tempInCelcius, 10);
-    console.log(tempInCelcius);
-    let fahrenheit = Math.round((celcius*1.8) + 32);
+    const celcius = parseInt(tempInCelcius, 10);
+    const fahrenheit = Math.round((celcius * 1.8) + 32);
     return `${fahrenheit}°F`;
   },
   convertToCelcius: tempInFahrenheit => {
-    let fahrenheit = parseInt(tempInFahrenheit, 10);
-    console.log(fahrenheit);
-    let celcius = Math.round((fahrenheit - 32)/1.8);
+    const fahrenheit = parseInt(tempInFahrenheit, 10);
+    const celcius = Math.round((fahrenheit - 32) / 1.8);
     return `${celcius}°F`;
-  }
+  },
 };
 
 export default helpers;
