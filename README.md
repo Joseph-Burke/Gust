@@ -6,7 +6,7 @@
 
 The purpose of this project is to demonstrate competence in fetching and handling data via an API - in this case, the [OpenWeatherMap](https://openweathermap.org/) API.
 
-As part of fetching data with a GET request, this project also demonstrates the use of Asynchronous JavaScript, to ensure the proper ordering and execution of tasks.
+Retrieving the weather data also involves the use of Asynchronous JavaScript, to ensure the proper ordering and execution of tasks.
 
 ## Built With
 
@@ -15,10 +15,11 @@ As part of fetching data with a GET request, this project also demonstrates the 
 - webpack
 - Sass
 - Bootstrap
+- Font Awesome
 
 ## Getting Started
 
-To get a local copy up and running follow these simple example steps.
+To get a local copy up and running follow these simple example steps:
 
 ### Prerequisites
 
@@ -42,9 +43,7 @@ To set this project up locally, follow these simple instructions:
 
 ## Author
 
-👤 **Joseph Burke**
-
-  **Say hello!**
+👤 **Joe Burke**
 
 - Github: [@Joseph-Burke](https://github.com/Joseph-Burke)
 - Twitter: [@__joeburke](https://twitter.com/__joeburke)
@@ -64,7 +63,7 @@ Give a ⭐️ if you like this project!
 
 - Many thanks to all of my peers and colleagues from Microverse.
 - This assignment was taken from [The Odin Project](https://www.theodinproject.com/home)'s Web Development course, which is available for free.
-- This project depends on information served by two APIs: [OpenWeatherMap](https://openweathermap.org/) and [Colr](http://www.colr.org)
+- This project depends on information served by two APIs: [OpenWeatherMap](https://openweathermap.org/) and [Colr](http://www.colr.org).
 
 ## 📝 License
 
