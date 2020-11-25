@@ -43,7 +43,7 @@ const dom = {
   },
   displayWeather: data => {
     dom.removePreviousDisplay();
-    const formSection = document.getElementsByTagName("body")[0].children[0];
+    const formSection = document.getElementsByTagName("body")[0].children[1];
     const display = helpers.createContent({
       element: "section",
       id: "display-section",
@@ -70,7 +70,7 @@ const dom = {
                 },
                 {
                   element: "div",
-                  classList: ["col-5"],
+                  classList: ["col-4"],
                   children: [
                     {
                       element: "div",
@@ -92,7 +92,7 @@ const dom = {
                 },
                 {
                   element: "div",
-                  classList: ["col-4"],
+                  classList: ["col-5"],
                   children: [
                     {
                       element: "div",
@@ -109,7 +109,7 @@ const dom = {
                           element: "a",
                           id: "conversion-link",
                           classList: ["conversion-link"],
-                          textContent: `Convert to Fahrenheit`,
+                          textContent: `Click for Fahrenheit`,
                           eventListeners: [
                             [
                               "click",
@@ -117,7 +117,8 @@ const dom = {
                                 event.preventDefault();
                                 dom.convertTemperature();
                               }
-                            ]
+                            ],
+                            ["hover", ]
                           ]
                         }
                       ]
@@ -161,13 +162,14 @@ const dom = {
     let tempElement = document.getElementById("temperature");
     if (tempElement["data-attribute"] == "celcius") {
       let celcius = tempElement.textContent;
-      let fahrenheit = helpers.convertToFahrenheit(celcius);
-      tempElement.textContent = fahrenheit;
+      tempElement.textContent = helpers.convertToFahrenheit(celcius);
       tempElement["data-attribute"] = "fahrenheit";
+      document.getElementById('conversion-link').textContent = 'Click for Celcius' ;
     } else if (tempElement["data-attribute"] == "fahrenheit") {
       let fahrenheit = tempElement.textContent;
       tempElement.textContent = helpers.convertToCelcius(fahrenheit);
       tempElement["data-attribute"] = "celcius";
+      document.getElementById('conversion-link').textContent = 'Click for Fahrenheit' ;
     }
   }
 };

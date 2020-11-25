@@ -15,11 +15,26 @@ body {
   transition: background-image 10s ease-in;
   background-image: none;
 
+  .header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .project-logo {
+      font-size: 10rem;
+    }
+
+    .project-title {
+      font-family: 'Nunito', sans-serif;
+      font-size: 3.2rem;
+    }
+  }
+
   .form-section {
     @include section-width;
 
     .city-form {
-      background: rgba(255, 255, 255, 0.7);
+      background: white;
       border: 2.5px solid rgba(168, 168, 168, 0.8);
       border-radius: 0.45rem;
     }
@@ -30,6 +45,19 @@ body {
 
     .card {
       border: 2px solid rgba(168, 168, 168, 0.8);
+
+      .card-body {
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+
+      .conversion-link {
+        font-size: 0.9rem;
+      }
+
+      .conversion-link:hover {
+        cursor: pointer;
+      }
     }
   }
 }

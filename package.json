@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "bootstrap": "^4.5.3"
+    "@fortawesome/fontawesome-free": "^5.15.1",
+    "bootstrap": "^4.5.3",
+    "file-loader": "^6.2.0"
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
