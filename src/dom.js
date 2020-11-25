@@ -102,19 +102,26 @@ const dom = {
     dom.applyButtonEventListener();
     dom.applyCityInputEventListener();
   },
-  setBodyBackground: color => {
+  setBodyBackground: gradient => {
     let body = document.getElementById('body');
-    body.style['background-color'] = color;
+    body.style['background-image'] = gradient;
   },
   changeBackground: searchTerm => {
     searchTerm = searchTerm.toLowerCase();
-    api
-      .fetchColors(searchTerm)
+    api.fetchColors(searchTerm)
       .then(data => data.json())
       .then(obj => {
-        let colour = obj.colors[0].hex;
-        dom.setBodyBackground(`#${colour}`);
-      });
+        let hexCodes = helpers.pickColors(obj.colors)
+        let radialGradient =
+          "radial-gradient(circle, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.8)), repeating-radial-gradient(circle, ";
+        
+        for (let i = 0; i < hexCodes.length - 1; i += 1) {
+          radialGradient += `${hexCodes[i]} ${100 + (50*i)}px,`;
+        }
+        radialGradient += `${hexCodes[4]} 250px)`;
+        dom.setBodyBackground(radialGradient);
+        }
+      )
   }
 };
 

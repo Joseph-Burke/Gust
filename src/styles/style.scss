@@ -4,19 +4,32 @@
   max-width: 500px;
 }
 
+@mixin cover-viewport {
+  min-width: 100vw;
+  min-height: 100vh;
+}
+
 body {
-  transition: background-color 1s ease-out;
+  @include cover-viewport;
+
+  transition: background-image 10s ease-in;
+  background-image: none;
 
   .form-section {
     @include section-width;
+
+    .city-form {
+      background: rgba(255, 255, 255, 0.7);
+      border: 2.5px solid rgba(168, 168, 168, 0.8);
+      border-radius: 0.45rem;
+    }
   }
 
   .display-section {
     @include section-width;
 
     .card {
-      .weather-icon {
-      }
+      border: 2px solid rgba(168, 168, 168, 0.8);
     }
   }
 }

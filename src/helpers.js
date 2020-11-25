@@ -47,6 +47,17 @@ const helpers = {
     });
     return output;
   },
+  pickColors: colorsArray => {
+    let chosenColours = [];
+    for (let i = 0; i < 5; i += 1) {
+      let randomIndex = Math.floor(Math.random() * colorsArray.length);
+      chosenColours.push(colorsArray[randomIndex].hex);
+      console.log(colorsArray[randomIndex].hex);
+    }
+    chosenColours = chosenColours.map(code => `#${code}`);
+
+    return chosenColours
+  }
 };
 
 export default helpers;
