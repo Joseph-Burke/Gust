@@ -1,4 +1,4 @@
-@import '~bootstrap';
+@import "~bootstrap";
 
 @mixin section-width {
   max-width: 500px;
@@ -11,5 +11,10 @@ body {
 
   .display-section {
     @include section-width;
+
+    .card {
+      .weather-icon {
+      }
+    }
   }
 }

@@ -18,7 +18,10 @@ const dom = {
   applyButtonEventListener: () => {
     const cityFormButton = document.getElementById('submit-city-form-button');
     cityFormButton.addEventListener('click', event => {
-      dom.submitCityForm(event.target.parentElement).then(data => dom.displayWeather(data));
+      dom.submitCityForm(event.target.parentElement).then(data => {
+        dom.displayWeather(data);
+        console.log(data);
+      });
     });
   },
   removePreviousDisplay: () => {
@@ -37,20 +40,50 @@ const dom = {
       children: [
         {
           element: "div",
-          classList: ["card", "card-body"],
+          classList: ["card", "my-3"],
           children: [
             {
-              element: "h3",
-              textContent: data.name,
-              classList: ['card-title']
-            },
-            {
-              element: "p",
-              textContent: data.weather[0].description,
-              classList: ['card-text']
+              element: 'div',
+              classList: ['row', "no-gutters"],
+              children: [
+                {
+                  element: 'div',
+                  classList: ['col-3'],
+                  children: [
+                    {
+                      element: 'img',
+                      src: `http://openweathermap.org/img/w/${data.weather[0].icon}.png`,
+                      classList: ['weather-icon', 'card-img']
+                    }
+                  ]
+                },
+                {
+                  element: 'div',
+                  classList: ['col-9'],
+                  children: [
+                    {
+                      element: 'div',
+                      classList: ['card-body'],
+                      children: [
+                        {
+                          element: "h3",
+                          textContent: data.name,
+                          classList: ['card-title']
+                        },
+                        {
+                          element: "p",
+                          textContent: data.weather[0].description,
+                          classList: ['card-text']
+                        }
+                      ]
+                    }
+
+                  ]
+                }
+              ]
             }
           ]
-        },
+        }
       ]
     });
     formSection.insertAdjacentElement("afterend", display);
