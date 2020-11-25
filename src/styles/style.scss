@@ -5,6 +5,8 @@
 }
 
 body {
+  transition: background-color 1s ease-out;
+
   .form-section {
     @include section-width;
   }
