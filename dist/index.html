@@ -1,26 +1,42 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <title>Weather App</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
   </head>
   <body>
     <!--[if lt IE 7]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+      <p class="browsehappy">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="#">upgrade your browser</a> to improve your experience.
+      </p>
     <![endif]-->
 
     <section id="form-section" class="form-section container">
       <form class="city-form">
         <div class="form-group">
           <label for="city">City</label>
-          <input type="text" class="form-control form-control-lg" name="city">
-          <small class="form-text text-muted">Which city would you like to view weather for?</small>
+          <input
+            id="city-input"
+            type="text"
+            class="form-control form-control-lg"
+            name="city"
+          />
+          <small class="form-text text-muted"
+            >Which city would you like to view weather for?</small
+          >
         </div>
-        <button id="submit-city-form-button" type="button" class="btn btn-primary">Submit</button>
+        <button
+          id="submit-city-form-button"
+          type="button"
+          class="btn btn-primary"
+        >
+          Submit
+        </button>
       </form>
     </section>
-    
+
     <script src="main.js"></script>
   </body>
 </html>

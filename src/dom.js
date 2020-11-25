@@ -20,9 +20,18 @@ const dom = {
     cityFormButton.addEventListener('click', event => {
       dom.submitCityForm(event.target.parentElement).then(data => {
         dom.displayWeather(data);
-        console.log(data);
       });
     });
+  },
+  applyCityInputEventListener: () => {
+    const cityInput = document.getElementById('city-input');
+    const cityFormButton = document.getElementById('submit-city-form-button');
+    cityInput.addEventListener('keypress', event => {
+    if (event.keyCode==13) {
+      event.preventDefault();
+      cityFormButton.click();
+      }
+    })
   },
   removePreviousDisplay: () => {
     const display = document.getElementById('display-section');
@@ -90,6 +99,7 @@ const dom = {
   },
   modifyDocument: () => {
     dom.applyButtonEventListener();
+    dom.applyCityInputEventListener();
   },
 };
 
