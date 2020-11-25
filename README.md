@@ -2,8 +2,7 @@
 
 **Gust** is a web app that fetches and displays information about the current weather in any of the world's major cities.
 
-![screenshot](./screenshots/home_screenshot.png)
-![screenshot](./screenshots/menu_screenshot.png)
+![screenshot](./screenshot.png)
 
 The purpose of this project is to demonstrate competence in fetching and handling data via an API - in this case, the [OpenWeatherMap](https://openweathermap.org/) API.
 
